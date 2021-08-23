@@ -9,15 +9,15 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "lotterywinner34",
-  database: "employeesDB"
+  database: "employeeDB"
 });
 
 connection.connect(function (err) {
     if (err) throw err;
-    firstPrompt();
+    initialPrompt();
 });
 
-  function firstPrompt() {
+  function initialPrompt() {
 
     inquirer
       .prompt({
@@ -25,47 +25,30 @@ connection.connect(function (err) {
         name: "task",
         message: "Would you like to do?",
         choices: [
-          "View Employees",
-          "View Employees by Department",
-        
-          "Add Employee",
-          "Remove Employees",
-          "Update Employee Role",
+          "View All Departments",
+          "View All Roles",
+          "View All Employees",
+          "Add a Department", 
+          "Add a Role",     
+          "Add an Employee",
+          "Update an Employee Role",
           "Add Role",
-         
           "End"]
       })
       .then(function ({ task }) {
         switch (task) {
-          case "View Employees":
+          case "View All Employees":
             viewEmployee();
             break;
-          case "View Employees by Department":
-            viewEmployeeByDepartment();
-            break;
-          // case "View Employees by Manager":
-          //   viewEmployeeByManager();
-          //   break;
-          case "Add Employee":
+          case "Add an Employee":
             addEmployee();
             break;
-          case "Remove Employees":
-            removeEmployees();
-            break;
-          case "Update Employee Role":
+          case "Update an Employee Role":
             updateEmployeeRole();
             break;
-          case "Add Role":
+          case "Add a Role":
             addRole();
-            break;
-          // case "Remove Role":
-          //   removeRole();
-          //   break;
-  
-          // case "Update Employee MAnager":
-          //   updateEmployeeManager();
-          //   break;
-  
+            break; 
           case "End":
             connection.end();
             break;
