@@ -34,7 +34,7 @@ connection.connect(function (err) {
           "Update an Employee Role",
           "Add Role",
           "End"]
-      })
+    })
       .then(function ({ task }) {
         switch (task) {
           case "View All Employees":
@@ -53,5 +53,27 @@ connection.connect(function (err) {
             connection.end();
             break;
         }
-      });
+    });
+}
+
+
+function addEmployee() {
+    console.log("Inserting an employee!")
+  
+    var query =
+      `SELECT r.id, r.title, r.salary 
+        FROM role r`
+  
+        connection.query(query, function (err, res) {
+            if (err) throw err;
+  
+      const roleChoices = res.map(({ id, title, salary }) => ({
+        value: id, title: `${title}`, salary: `${salary}`
+        }));
+  
+    console.table(res);
+    console.log("RoleToInsert!");
+  
+    promptInsert(roleChoices);
+    });
   }
