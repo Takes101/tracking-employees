@@ -1,0 +1,27 @@
+{
+  "name": "tracking-employees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.1.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Takes101/tracking-employees.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Takes101/tracking-employees/issues"
+  },
+  "homepage": "https://github.com/Takes101/tracking-employees#readme"
+}
